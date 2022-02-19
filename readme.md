@@ -10,7 +10,7 @@ Tasks done:
 
 To do task list:
 -
-- fewof geierge
+- 
 
 Contributors:
 
