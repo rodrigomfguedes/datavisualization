@@ -1,0 +1,34 @@
+teamID;team_name;Groups_GroupID;Stadiums_stadiumID;totaltrophies
+1;Bayern Munich;1;1;6
+2;Atletico Madrid;1;2;0
+3;Salzburg;1;3;0
+4;Lokomotiv Moscow;1;4;0
+5;Real Madrid;2;5;13
+6;B. Monchengladbach;2;6;0
+7;Shakhtar Donetsk;2;7;0
+8;Inter;2;8;3
+9;Manchester City;3;9;0
+10;FC Porto;3;10;2
+11;Olympiacos ;3;11;0
+12;Marseille;3;12;1
+13;Liverpool;4;13;6
+14;Atalanta;4;14;0
+15;Ajax;4;15;4
+16;Midtjylland;4;16;0
+17;Chelsea;5;17;2
+18;Sevilla;5;18;0
+19;Krasnodar;5;19;0
+20;Rennes;5;20;0
+21;Dortmund;6;21;1
+22;Lazio;6;22;0
+23;Club Brugge Kv;6;23;0
+24;Zenit;6;24;0
+25;Juventus;7;25;2
+26;Barcelona;7;26;5
+27;Dyn. Kyiv;7;27;0
+28;Ferencvaros;7;28;0
+29;Paris SG;8;29;0
+30;RB Leipzig;8;30;0
+31;Manchester Utd;8;31;3
+32;Baasaksehir;8;32;0
+;;;;
