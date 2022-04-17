@@ -1,6 +1,6 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 from dash.dependencies import Input, Output, State
 import dash_daq as daq
 import dash_bootstrap_components as dbc
@@ -14,64 +14,26 @@ import plotly.express as px
 
 stadiumMap = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data/stadiumMap.csv')
 games_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data/games_df.csv')
+round6_stats_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data/games_df.csv')
 
 
-#----------------------Data Transformation ----------------------
-
-#----Functions
-
-def get_points(score, home):
-    split_score = score.split('x')
-    split_score = [int(i) for i in split_score]
-
-    # Away Team
-    if home == 0:
-        if split_score[0] > split_score[1]:
-            return 0
-        elif split_score[0] == split_score[1]:
-            return 1
-        else:
-            return 3
-
-    # Home Team
-    else:
-        if split_score[0] > split_score[1]:
-            return 3
-        elif split_score[0] == split_score[1]:
-            return 1
-        else:
-            return 0
+group_names = ['A','B','C','D','E','F','G','H']
 
 
-def get_statistic(stat, home):
-    split_stat = stat.split('x')
-    split_stat = [int(i) for i in split_stat]
 
-    if home == 0:
-        return split_stat[1]
-    else:
-        return split_stat[0]
+######################################################Interactive Components############################################
 
-#-----Apply functions
+group_options = [dict(label=group, value=group) for group in group_names]
 
-#Get points
-games_df = games_df.sort_values(by=['matchID'])
-games_df['matchPoints'] = games_df.apply(lambda x: get_points(x.score, x.home), axis=1)
-
-#Get statistics
-game_stats = ['ballPosession', 'corners', 'freekicks', 'offsides', 'score', 'shotsOnGoal']
-
-for stat in game_stats:
-    games_df[stat] = games_df.apply(lambda x: get_statistic(x[stat], x.home), axis=1)
-
-
-#Data frame that gets the standings at round 6 and average stats
-c1 = games_df.groupby(['Teams_teamID','team_name','GroupName'])[['matchPoints']].sum()
-c2 = games_df.groupby(['Teams_teamID','team_name','GroupName'])[['ballPosession','freekicks','shotsOnGoal']].mean().round(1)
-
-round6_stats_df = c1.merge(c2, on=['Teams_teamID','team_name','GroupName'])
-round6_stats_df.reset_index(inplace=True)
-
+slider_year = dcc.Slider(
+        id='year_slider',
+        min=games_df['round'].min(),
+        max=games_df['round'].max(),
+        marks={str(i): '{}'.format(str(i)) for i in
+               [1,2,3,4,5,6]},
+        value=games_df['round'].min(),
+        step=1
+    )
 
 #-------------------Visualizations----------------------
 
