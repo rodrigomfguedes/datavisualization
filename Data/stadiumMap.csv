@@ -1,33 +1,33 @@
-StadiumName,Capacity,Latitude,Longitude,CityName,CoutryInitials,totaltrophies,team_name
-"Allianz Arena",75000,48.2169,11.6195,Munich,DE,6,"Bayern Munich"
-Borussia-Park,59724,51.1746,6.38332,Monchengladbach,DE,0,"B. Monchengladbach"
-"Signal Iduna Park",81365,51.4926,7.44967,Dortmund,DE,1,Dortmund
-"Red Bull Arena",47069,51.3458,12.3461,Leipzig,DE,0,"RB Leipzig"
-"Wanda Metropolitano",68456,48.2169,11.6195,Madrid,ES,0,"Atletico Madrid"
-"Santiago Bernabeu",81044,40.453,-3.69052,Madrid,ES,13,"Real Madrid"
-"Ramón Sánchez Pizjuán",43883,37.3841,-5.97288,Seville,ES,0,Sevilla
-"Camp Nou",99354,41.3809,2.12063,Barcelona,ES,5,Barcelona
-"Red Bull Arena",30188,40.4362,-3.60166,Salzburg,AT,0,Salzburg
-"Lokomotiv Stadium",27320,55.8035,37.7388,Moscow,RU,0,"Lokomotiv Moscow"
-"Krasnodar Stadium",35074,45.045,39.0265,Krasnodar,RU,0,Krasnodar
-"Gazprom Arena",68000,59.9727,30.2192,St.Petersbourg,RU,0,Zenit
-"Donbass Arena",52187,48.0211,37.808,Donetsk,UA,0,"Shakhtar Donetsk"
-"Kyiv Olympic Stadium",70050,50.4334,30.5197,Kiev,UA,0,"Dyn. Kyiv"
-"Giuseppe Meazza",80018,45.4781,9.12177,Milan,IT,3,Inter
-"Atleti Azzurri d'Italia",21300,45.7092,9.67866,Bergamo,IT,0,Atalanta
-"Stadio Olimpico",72698,41.9341,12.4525,Rome,IT,0,Lazio
-"Juventus Stadium",41507,45.1096,7.63905,Turin,IT,2,Juventus
-"Etihad Stadium",55097,53.4831,-2.20258,Manchester,UK,0,"Manchester City"
-"Old Trafford",76212,53.4598,-2.29523,Manchester,UK,3,"Manchester Utd"
-Anfield,53394,53.4308,-2.96302,Liverpool,UK,6,Liverpool
-"Stamford Bridge",41837,51.4817,-0.193145,London,UK,2,Chelsea
-"Estádio do Dragão",50033,41.1618,-8.58578,Porto,PT,2,"FC Porto"
-"Georgios Karaiskakis",32115,37.9466,23.6622,Piraeus,GR,0,"Olympiacos "
-"Stade Vélodrome",67394,43.2698,5.3937,Marseille,FR,1,Marseille
-"Roazhon Park",29778,48.1075,-1.71506,Rennes,FR,0,Rennes
-"Parc des Princes",47929,48.8414,2.25086,Paris,FR,0,"Paris SG"
-"Johan Cruyff Arena",55500,52.3144,4.93978,Amsterdam,NL,4,Ajax
-"MCH Arena",11432,56.1168,8.94954,Herning,DK,0,Midtjylland
-"Jan Breydel Stadium",29042,51.1932,3.17783,Brugges,BE,0,"Club Brugge Kv"
-"Groupama Arena",23698,47.4753,19.0931,Budapest,HU,0,Ferencvaros
-"Basaksehir Fatih Terim Stadium",17319,41.1228,28.8065,Basaksehir,TR,0,Baasaksehir
+StadiumName;Capacity;Latitude;Longitude;CityName;CoutryInitials;totaltrophies;team_name
+Allianz Arena;75000;48.2169;11.6195;Munich;DE;6;Bayern Munich
+Borussia-Park;59724;51.1746;6.38332;Monchengladbach;DE;0;B. Monchengladbach
+Signal Iduna Park;81365;51.4926;7.44967;Dortmund;DE;1;Dortmund
+Red Bull Arena;47069;51.3458;12.3461;Leipzig;DE;0;RB Leipzig
+Wanda Metropolitano;68456;40.4362;-3.60166;Madrid;ES;0;Atletico Madrid
+Santiago Bernabeu;81044;40.453;-3.69052;Madrid;ES;13;Real Madrid
+Ramón Sánchez Pizjuán;43883;37.3841;-5.97288;Seville;ES;0;Sevilla
+Camp Nou;99354;41.3809;2.12063;Barcelona;ES;5;Barcelona
+Red Bull Arena;30188;48.2169;11.6195;Salzburg;AT;0;Salzburg
+Lokomotiv Stadium;27320;55.8035;37.7388;Moscow;RU;0;Lokomotiv Moscow
+Krasnodar Stadium;35074;45.045;39.0265;Krasnodar;RU;0;Krasnodar
+Gazprom Arena;68000;59.9727;30.2192;St.Petersbourg;RU;0;Zenit
+Donbass Arena;52187;48.0211;37.808;Donetsk;UA;0;Shakhtar Donetsk
+Kyiv Olympic Stadium;70050;50.4334;30.5197;Kiev;UA;0;Dyn. Kyiv
+Giuseppe Meazza;80018;45.4781;9.12177;Milan;IT;3;Inter
+Atleti Azzurri d'Italia;21300;45.7092;9.67866;Bergamo;IT;0;Atalanta
+Stadio Olimpico;72698;41.9341;12.4525;Rome;IT;0;Lazio
+Juventus Stadium;41507;45.1096;7.63905;Turin;IT;2;Juventus
+Etihad Stadium;55097;53.4831;-2.20258;Manchester;UK;0;Manchester City
+Old Trafford;76212;53.4598;-2.29523;Manchester;UK;3;Manchester Utd
+Anfield;53394;53.4308;-2.96302;Liverpool;UK;6;Liverpool
+Stamford Bridge;41837;51.4817;-0.193145;London;UK;2;Chelsea
+Estádio do Dragão;50033;41.1618;-8.58578;Porto;PT;2;FC Porto
+Georgios Karaiskakis;32115;37.9466;23.6622;Piraeus;GR;0;Olympiacos 
+Stade Vélodrome;67394;43.2698;5.3937;Marseille;FR;1;Marseille
+Roazhon Park;29778;48.1075;-1.71506;Rennes;FR;0;Rennes
+Parc des Princes;47929;48.8414;2.25086;Paris;FR;0;Paris SG
+Johan Cruyff Arena;55500;52.3144;4.93978;Amsterdam;NL;4;Ajax
+MCH Arena;11432;56.1168;8.94954;Herning;DK;0;Midtjylland
+Jan Breydel Stadium;29042;51.1932;3.17783;Brugges;BE;0;Club Brugge Kv
+Groupama Arena;23698;47.4753;19.0931;Budapest;HU;0;Ferencvaros
+Basaksehir Fatih Terim Stadium;17319;41.1228;28.8065;Basaksehir;TR;0;Baasaksehir

@@ -3,11 +3,11 @@
 1,Borussia-Park,59724,51.1746,6.38332,Monchengladbach,DE,0,B. Monchengladbach
 2,Signal Iduna Park,81365,51.4926,7.44967,Dortmund,DE,1,Dortmund
 3,Red Bull Arena,47069,51.3458,12.3461,Leipzig,DE,0,RB Leipzig
-4,Wanda Metropolitano,68456,48.2169,11.6195,Madrid,ES,0,Atletico Madrid
+4,Wanda Metropolitano,68456,40.4362,-3.60166,Madrid,ES,0,Atletico Madrid
 5,Santiago Bernabeu,81044,40.453,-3.69052,Madrid,ES,13,Real Madrid
-6,Ramón Sánchez Pizjuán,43883,37.3841,-5.97288,Seville,ES,0,Sevilla
+6,RamÃ³n SÃ¡nchez PizjuÃ¡n,43883,37.3841,-5.97288,Seville,ES,0,Sevilla
 7,Camp Nou,99354,41.3809,2.12063,Barcelona,ES,5,Barcelona
-8,Red Bull Arena,30188,40.4362,-3.60166,Salzburg,AT,0,Salzburg
+8,Red Bull Arena,30188,48.2169,11.6195,Salzburg,AT,0,Salzburg
 9,Lokomotiv Stadium,27320,55.8035,37.7388,Moscow,RU,0,Lokomotiv Moscow
 10,Krasnodar Stadium,35074,45.045,39.0265,Krasnodar,RU,0,Krasnodar
 11,Gazprom Arena,68000,59.9727,30.2192,St.Petersbourg,RU,0,Zenit
@@ -21,9 +21,9 @@
 19,Old Trafford,76212,53.4598,-2.29523,Manchester,UK,3,Manchester Utd
 20,Anfield,53394,53.4308,-2.96302,Liverpool,UK,6,Liverpool
 21,Stamford Bridge,41837,51.4817,-0.193145,London,UK,2,Chelsea
-22,Estádio do Dragão,50033,41.1618,-8.58578,Porto,PT,2,FC Porto
+22,EstÃ¡dio do DragÃ£o,50033,41.1618,-8.58578,Porto,PT,2,FC Porto
 23,Georgios Karaiskakis,32115,37.9466,23.6622,Piraeus,GR,0,Olympiacos 
-24,Stade Vélodrome,67394,43.2698,5.3937,Marseille,FR,1,Marseille
+24,Stade VÃ©lodrome,67394,43.2698,5.3937,Marseille,FR,1,Marseille
 25,Roazhon Park,29778,48.1075,-1.71506,Rennes,FR,0,Rennes
 26,Parc des Princes,47929,48.8414,2.25086,Paris,FR,0,Paris SG
 27,Johan Cruyff Arena,55500,52.3144,4.93978,Amsterdam,NL,4,Ajax
