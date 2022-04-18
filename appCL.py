@@ -32,7 +32,7 @@ drop_group = dcc.Dropdown(id='drop_group',
                                        {'label': 'Group G', 'value': 'G'},
                                        {'label': 'Group H', 'value': 'H'}],
                               value='A',
-                              style={'margin': '4px', 'box-shadow': '0px 0px #ebb36a', 'border-color': '#ebb36a'}
+                              style={'margin': '4px', 'box-shadow': '0px 0px #000066', 'border-color': '#000066'}
                               )
 
 drop_statistic = dcc.Dropdown(id='drop_statistic',
@@ -43,7 +43,7 @@ drop_statistic = dcc.Dropdown(id='drop_statistic',
                                        {'label': 'Corners', 'value': 'corners'},
                                        ],
                               value='ballPosession',
-                              style={'margin': '4px', 'box-shadow': '0px 0px #ebb36a', 'border-color': '#ebb36a'}
+                              style={'margin': '4px', 'box-shadow': '0px 0px #000066', 'border-color': '#000066'}
                               )
 
 
@@ -53,7 +53,7 @@ slider_round = daq.Slider(id='slider_round',
                         min =1,
                         max =6,
                         size=450,
-                        color='#4B9072',
+                        color='#000066',
                         value = 1
                         )
 
@@ -234,19 +234,6 @@ app.layout = html.Div([
 
                 ], style={'width': '42%'})
         ], className='row'),
-
-        html.Div([
-                html.Div([
-                    html.Div([
-                        dcc.Graph(figure=fig_scatter_corr),
-                        html.Div([
-                        html.P('Analyse the relationships between the number of points of the teams in the end of the Group Stage and the different statistics characteristics of a Football Game. The size of the markers represent the average number of corners and the color saturation the average ball possession %')
-                        ], className='box_comment')
-                    ], className='box', style={'padding-bottom':'15px'})
-
-                ], style={'width': '100%'})
-
-        ], className='row')
 
     ], className='main')
 ])
