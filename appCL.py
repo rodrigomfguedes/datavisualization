@@ -16,8 +16,8 @@ import plotly.figure_factory as ff
 stadiumMap = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data_dash/stadiumMap.csv')
 games_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data_dash/games_df.csv')
 round6_stats_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data_dash/round6_stats_df.csv')
-#CL_audio = 'https://github.com/rodrigomfguedes/datavisualization/raw/master/Data_dash/UEFA-Champions-League-Theme-Song-On-Screen.mp3''
-CL_audio = 'assets/UCL.mp3'
+CL_audio = 'https://od.lk/s/NDBfNDEyOTQzMTlf/UEFA-Champions-League-Theme-Song-On-Screen.mp3'
+#CL_audio = 'assets/UCL.mp3'
 group_names = ['A','B','C','D','E','F','G','H']
 
 drop_group = dcc.Dropdown(id='drop_group',
@@ -90,7 +90,7 @@ map_scattergeo = dict(type='scattergeo',
                                   colorscale=['#f9fbff', "#8e7cc3"],
                                   cmin=0,
                                   color=stadiumMap['totaltrophies'],
-                                  colorbar_title="Number of Champions League Titles"
+                                  colorbar_title="# UCL Titles"
                                   )
                       )
 
@@ -118,7 +118,7 @@ scatter_corr = dict(type='scatter',
                     mode='markers',
                     marker=dict(size=round6_stats_df['corners'] * 3,
                                 color=round6_stats_df['ballPosession'],
-                                colorbar=dict(title=dict(text='Average Ball Posession <br> Percentage')),
+                                colorbar=dict(title=dict(text='Avg.<br>Ball Posession%')),
                                 colorscale=["#000066", '#f9fbff'],
                                 showscale=True,
                                 line=dict(width=1, color='rgba(102, 102, 102)'),
@@ -178,37 +178,10 @@ app.layout = html.Div([
         html.P(['Group 15', html.Br(), 'Beatriz Gomes - 20210545', html.Br(), 'Catarina Garcez - 20210547', html.Br(),
                 'Diogo Pires - 20201076', html.Br(), 'Rodrigo Guedes - 20210587'], style={'font-size': '14px'}),
 
-        html.Audio(controls='controls', src=CL_audio, autoPlay='autoPlay')
+        html.Audio(id='player', controls='controls', src=CL_audio, autoPlay='autoPlay')
     ], className='side_bar'),
 
     html.Div([
-        html.Div([
-                html.Div([
-                    html.Div([
-                        dcc.Graph(figure=fig_map_scattergeo),
-                        html.Div([
-                        html.P('Understand what is the region of the Europe that have more represents in the competition and check for each Team the information regarding the Capacity of the Stadium by the size of the stars and the number of Champions League titles won by the color saturation of the markers.')
-                        ], className='box_comment')
-                    ], className='box', style={'padding-bottom':'15px'})
-
-                ], style={'width': '100%'})
-
-        ], className='row'),
-
-        html.Div([
-                html.Div([
-                    html.Div([
-                        dcc.Graph(figure=fig_scatter_corr),
-                        html.Div([
-                        html.P('Analyse the relationships between the number of points of the teams in the end of the Group Stage and the different statistics characteristics of a Football Game. The size of the markers represent the average number of corners and the color saturation the average ball possession %')
-                        ], className='box_comment')
-                    ], className='box', style={'padding-bottom':'15px'})
-
-                ], style={'width': '100%'})
-
-        ], className='row'),
-
-
         html.Div([
             html.Div([
                 html.Div([
@@ -240,6 +213,41 @@ app.layout = html.Div([
                 ], )
             ], className='box', style={'width': '100%'})
         ], className='row'),
+        html.Div([
+                html.Div([
+                    html.Div([
+                        dcc.Graph(figure=fig_map_scattergeo),
+                        html.Div([
+                        html.P('Understand what is the region of the Europe that have more represents in the competition and check for each Team the information regarding the Capacity of the Stadium by the size of the stars and the number of Champions League titles won by the color saturation of the markers.')
+                        ], className='box_comment')
+                    ], className='box', style={'padding-bottom':'15px'})
+
+                ], style={'width': '58%'}),
+
+                html.Div([
+                    html.Div([
+                        dcc.Graph(figure=fig_scatter_corr),
+                        html.Div([
+                        html.P('Analyse the relationships between the number of points of the teams in the end of the Group Stage and the different statistics characteristics of a Football Game. The size of the markers represent the average number of corners and the color saturation the average ball possession %')
+                        ], className='box_comment')
+                    ], className='box', style={'padding-bottom':'15px'})
+
+                ], style={'width': '42%'})
+        ], className='row'),
+
+        html.Div([
+                html.Div([
+                    html.Div([
+                        dcc.Graph(figure=fig_scatter_corr),
+                        html.Div([
+                        html.P('Analyse the relationships between the number of points of the teams in the end of the Group Stage and the different statistics characteristics of a Football Game. The size of the markers represent the average number of corners and the color saturation the average ball possession %')
+                        ], className='box_comment')
+                    ], className='box', style={'padding-bottom':'15px'})
+
+                ], style={'width': '100%'})
+
+        ], className='row')
+
     ], className='main')
 ])
 
