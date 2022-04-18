@@ -1,6 +1,6 @@
 # Data Visualization Project
  
-
+fldfsl
 Current Version: 0
 
 Tasks done:
@@ -17,3 +17,4 @@ Contributors:
 - Rodrigo Guedes
 - Beatriz Selidónio Gomes
 - Catarina Garcez
+- Diogo Pires
