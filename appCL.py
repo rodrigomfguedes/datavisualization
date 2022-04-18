@@ -202,7 +202,7 @@ app.layout = html.Div([
                         html.Div([
 
                         dcc.Graph(id='table_stat')
-                        ],style={'width': '90%'}),
+                        ],style={'width': '100%'}),
 
 
                         html.Div([
@@ -296,7 +296,8 @@ def group_table(gameround, group, statistic):
         margin={'t': 75, 'l': 50},
         xaxis={'domain': [0, .52]},
         yaxis2={'anchor': 'x2', 'title': statistic + ' average'},
-        xaxis2={'domain': [.6, 1], 'anchor': 'x2'}
+        xaxis2={'domain': [.6, 1], 'anchor': 'x2'},
+        plot_bgcolor = 'rgba(0,0,0,0)'
     )
 
     return fig
