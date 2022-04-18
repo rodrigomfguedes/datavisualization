@@ -16,8 +16,8 @@ import plotly.figure_factory as ff
 stadiumMap = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data_dash/stadiumMap.csv')
 games_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data_dash/games_df.csv')
 round6_stats_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes/datavisualization/master/Data_dash/round6_stats_df.csv')
-
-
+#CL_audio = 'https://github.com/rodrigomfguedes/datavisualization/raw/master/Data_dash/UEFA-Champions-League-Theme-Song-On-Screen.mp3''
+CL_audio = 'assets/UCL.mp3'
 group_names = ['A','B','C','D','E','F','G','H']
 
 drop_group = dcc.Dropdown(id='drop_group',
@@ -176,7 +176,9 @@ app.layout = html.Div([
             style={'color': '#363535', 'text-align': 'justify', 'margin-bottom': '15px'}),
 
         html.P(['Group 15', html.Br(), 'Beatriz Gomes - 20210545', html.Br(), 'Catarina Garcez - 20210547', html.Br(),
-                'Diogo Pires - 20201076', html.Br(), 'Rodrigo Guedes - 20210587'], style={'font-size': '14px'})
+                'Diogo Pires - 20201076', html.Br(), 'Rodrigo Guedes - 20210587'], style={'font-size': '14px'}),
+
+        html.Audio(controls='controls', src=CL_audio, autoPlay='autoPlay')
     ], className='side_bar'),
 
     html.Div([
