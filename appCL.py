@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objs as go
 import plotly.express as px
+import plotly.figure_factory as ff
 
 
 #----------------------Data Imports-----------------------------
@@ -19,21 +20,47 @@ round6_stats_df = pd.read_csv('https://raw.githubusercontent.com/rodrigomfguedes
 
 group_names = ['A','B','C','D','E','F','G','H']
 
+drop_group = dcc.Dropdown(id='drop_group',
+                              clearable=False,
+                              searchable=False,
+                              options=[{'label': 'Group A', 'value': 'A'},
+                                       {'label': 'Group B', 'value': 'B'},
+                                       {'label': 'Group C', 'value': 'C'},
+                                       {'label': 'Group D', 'value': 'D'},
+                                       {'label': 'Group E', 'value': 'E'},
+                                       {'label': 'Group F', 'value': 'F'},
+                                       {'label': 'Group G', 'value': 'G'},
+                                       {'label': 'Group H', 'value': 'H'}],
+                              value='A',
+                              style={'margin': '4px', 'box-shadow': '0px 0px #ebb36a', 'border-color': '#ebb36a'}
+                              )
+
+drop_statistic = dcc.Dropdown(id='drop_statistic',
+                              clearable=False,
+                              searchable=False,
+                              options=[{'label': 'Ball Posession', 'value': 'ballPosession'},
+                                       {'label': 'Shots on Goal', 'value': 'shotsOnGoal'},
+                                       {'label': 'Corners', 'value': 'corners'},
+                                       ],
+                              value='ballPosession',
+                              style={'margin': '4px', 'box-shadow': '0px 0px #ebb36a', 'border-color': '#ebb36a'}
+                              )
+
+
+slider_round = daq.Slider(id='slider_round',
+                        handleLabel={"showCurrentValue": True,"label": "Round"},
+                        marks = {str(i):str(i) for i in [1,2,3,4,5,6]},
+                        min =1,
+                        max =6,
+                        size=450,
+                        color='#4B9072',
+                        value = 1
+                        )
+
 
 
 ######################################################Interactive Components############################################
 
-group_options = [dict(label=group, value=group) for group in group_names]
-
-slider_year = dcc.Slider(
-        id='year_slider',
-        min=games_df['round'].min(),
-        max=games_df['round'].max(),
-        marks={str(i): '{}'.format(str(i)) for i in
-               [1,2,3,4,5,6]},
-        value=games_df['round'].min(),
-        step=1
-    )
 
 #-------------------Static Visualizations----------------------
 
@@ -122,6 +149,15 @@ layout_scatter_corr = dict(title=dict(text='Relation between the Total Points ',
 
 fig_scatter_corr = go.Figure(data=scatter_corr, layout=layout_scatter_corr)
 
+
+def blank_fig():
+    fig = go.Figure(go.Scatter(x=[], y=[]))
+    fig.update_layout(template=None)
+    fig.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
+    fig.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
+
+    return fig
+
 # ------------------------------------------------------ APP ------------------------------------------------------
 
 app = dash.Dash(__name__)
@@ -170,11 +206,103 @@ app.layout = html.Div([
 
         ], className='row'),
 
+
+        html.Div([
+            html.Div([
+                html.Div([
+                        html.Div([
+                            html.Div([
+                                drop_group,
+                                html.Br(),
+                            ],style={'margin-left': '5%','width':'25%'}),
+
+                            html.Div([
+                                drop_statistic,
+                                html.Br(),
+                                html.Br(),
+                            ], style={'margin-left': '35%','width':'25%'}),
+
+                        ], className='row'),
+
+                        html.Div([
+
+                        dcc.Graph(id='table_stat')
+                        ],style={'width': '90%'}),
+
+
+                        html.Div([
+                            html.Div([
+                                slider_round
+                            ], style={'margin-left': '25%', 'width': '50%'})
+                        ], className='row')
+                ], )
+            ], className='box', style={'width': '100%'})
+        ], className='row'),
     ], className='main')
 ])
 
+##########################PLOT TABLES and Statistics #################################
+@app.callback(
+
+        Output('table_stat','figure'),
+        Input("slider_round", "value"),
+        Input("drop_group", "value"),
+        Input("drop_statistic", "value")
+)
 
 
+
+def group_table(gameround, group, statistic):
+    # Get the round stats
+    print(gameround, group, statistic)
+    c1 = games_df[games_df['round'] <= gameround].groupby(['Teams_teamID', 'team_name', 'GroupName'])[
+        ['matchPoints', 'score']].sum()
+    c2 = games_df[games_df['round'] <= gameround].groupby(['Teams_teamID', 'team_name', 'GroupName'])[
+        ['ballPosession', 'corners', 'shotsOnGoal']].mean().round(1)
+
+    round_stats_df = c1.merge(c2, on=['Teams_teamID', 'team_name', 'GroupName'])
+    round_stats_df.reset_index(inplace=True)
+
+    # Get the group stats
+    group_df = round_stats_df[round_stats_df['GroupName'] == group][
+        ['team_name', 'score', 'matchPoints', 'ballPosession', 'corners', 'shotsOnGoal']].sort_values(by='matchPoints',
+                                                                                                      ascending=False)
+    table_stats = ['team_name', 'matchPoints', 'score']
+    bar_stats = ['ballPosession', 'corners', 'shotsOnGoal']
+
+    # List for the table
+    table_list = group_df[table_stats].values.tolist()
+    table_list = np.vstack((['1st', '2nd', '3rd', '4th'], np.array(table_list).T)).T.tolist()
+
+    # List for barplot
+    bar_list = group_df[statistic].values.tolist()
+
+    # Add table data
+    table_data = [['Position', 'Team', 'Points', 'Goals Scored']] + table_list
+
+    # Initialize a fig with ff.create_table(table_data)
+    colorscale = [[0, '#000066'], [.5, '#cccce0'], [1, '#ffffff']]
+    fig = ff.create_table(table_data, height_constant=60, colorscale = colorscale)
+
+    # Add graph data
+    teams = np.array(table_list)[:, 1].tolist()
+
+    GFPG = bar_list
+
+    fig.add_trace(go.Bar(x=teams, y=GFPG, xaxis='x2', yaxis='y2',
+                         marker=dict(color="#000066"),
+                         name='Average ' + statistic + ' Per Game'))
+
+    fig.update_layout(
+        title_text='Group Stats',
+        height=400,
+        margin={'t': 75, 'l': 50},
+        xaxis={'domain': [0, .52]},
+        yaxis2={'anchor': 'x2', 'title': statistic + ' average'},
+        xaxis2={'domain': [.6, 1], 'anchor': 'x2'}
+    )
+
+    return fig
 
 
 # ------------------------------------------------------ Callbacks ------------------------------------------------------
